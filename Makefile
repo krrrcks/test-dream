@@ -14,8 +14,8 @@ all: default test
 
 pre:
 	opam update
+	opam exec dune build test-dream.opam
 	opam switch create . 
-	dune build test-dream.opam
 	opam install . --deps-only --with-test
 
 run:
@@ -30,12 +30,12 @@ test:
 # Rule for creating docker images 
 
 images:
-	docker build -f Dockerfile --target build_environment -t build-environment .
-	docker build -f Dockerfile --target build -t build .
-	docker build -f Dockerfile --target main -t main .
+	docker build -f Dockerfile --target dream_build_environment -t dream-build-environment .
+	docker build -f Dockerfile --target dream_build -t dream-build .
+	docker build -f Dockerfile --target dream_main -t dream-main .
 
 docker-test: images
 	docker run -it --rm build make test
 
 docker-run: images
-	docker run -it --rm main
+	docker run -it --rm dream-main

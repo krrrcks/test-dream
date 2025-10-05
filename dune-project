@@ -19,7 +19,7 @@
  (name test-dream)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune dream)
+ (depends (ocaml (>= 5.3.0)) dune dream)
  (tags
   ("add topics" "to describe" your project)))
 
