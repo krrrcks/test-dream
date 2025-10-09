@@ -1,4 +1,4 @@
-NAME = 		template-docker
+NAME = 		test-dream
 BUILDDIR = 	_build/default
 
 .PHONY:	$(NAME) pre default all run clean test 
@@ -27,7 +27,7 @@ clean:
 test:
 	dune runtest
 
-# Rule for creating docker images 
+# Rules for creating and running docker images 
 
 images:
 	docker build -f Dockerfile --target dream_build_environment -t dream-build-environment .
