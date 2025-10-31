@@ -1,4 +1,5 @@
 (executable
  (public_name test-dream)
  (name main)
+ (modes byte)
  (libraries dream test_dream))
